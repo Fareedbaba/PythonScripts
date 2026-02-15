@@ -5,39 +5,24 @@ Problem Statement: Write a Python program that:
 2.   Returns the calculated factorial.
 3.   Calls the function with a sample number and prints the output.
 """
-from math import factorial
 
-def factorial_using_loop(n):
+# Defining the factorial function
+def factorial(n):
     """This function takes a number as an argument and calculates its factorial."""
-    if n < 0:
-        return "Factorial is not defined for negative numbers."
-    elif n == 0 or n == 1:
-        return 1
+    factorial_of_number = 1
+    if n == 0:
+        factorial_of_number
     else:
-        result = 1
-        for i in range(2, n + 1):
-            result *= i
-        return result
+        for i in range(1, n + 1):
+            factorial_of_number *= i
+    return factorial_of_number
 
-def factorial_using_recursion(n):
-    """This function takes a number as an argument and calculates its factorial using recursion."""
-    if n < 0:
-        return "Factorial is not defined for negative numbers."
-    elif n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial_using_recursion(n - 1)
-
-def factorial_using_builtin(n):
-    """This function takes a number as an argument and calculates its factorial using the built-in math.factorial function."""
-    if n < 0:
-        return "Factorial is not defined for negative numbers."
-    else:
-        return factorial(n)
 
 if __name__ == "__main__":
     # Calling the function with a sample number and printing the output
-    sample_number = 5
-    print(f"The factorial of {sample_number} is: {factorial_using_loop(sample_number)}")
-    print(f"The factorial of {sample_number} is: {factorial_using_recursion(sample_number)}")
-    print(f"The factorial of {sample_number} is: {factorial_using_builtin(sample_number)}")
+    sample_number = int(input("Enter a number to calculate its factorial: "))
+    if sample_number >= 0:
+        factorial_of_sample_number = factorial(sample_number)
+        print(f"The factorial of {sample_number} is: {factorial_of_sample_number}")
+    else:
+        print("Factorial is not defined for negative numbers.")
