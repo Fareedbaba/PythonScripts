@@ -14,6 +14,8 @@ def write_to_file():
             user_input = input("Enter text to write to output.txt: ")
             file.write(user_input + "\n")
         print("Data written to output.txt successfully.")   
+        # if file does not exist, a new file will be created and content will be written to the file
+        # if file exists, the old content will be erased and the content will be over-written to the file
     except IOError as e:
         print(f"Error writing to file: {e}")
     except Exception as e:
@@ -24,7 +26,9 @@ def append_to_file():
         with open("output.txt", "at") as file:
             append_input = input("Enter additional text to append to output.txt: ")
             file.write(append_input + "\n")
-        print("Data appended to output.txt successfully.")
+        print("Data appended to output.txt successfully.")    
+        # if file does not exist, a new file will be created and content will be written to the file
+        # if file exists, new content will be appended to the existing content on the file.
     except IOError as e:
         print(f"Error appending to file: {e}")
     except Exception as e:
